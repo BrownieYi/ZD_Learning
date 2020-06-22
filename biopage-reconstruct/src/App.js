@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
-} from "react-router-dom";
-import home from './component/Home'
-import game from './component/Game'
-import './App.css'
+  Link,
+} from 'react-router-dom';
+import home from './component/Home';
+import game from './component/Game';
+import './App.css';
 
 export default function App() {
   return (

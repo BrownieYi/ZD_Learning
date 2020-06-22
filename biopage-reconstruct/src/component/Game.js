@@ -1,29 +1,32 @@
-import React, { Component } from 'react';
-import lol from "../../src/image/league.jpg"
-import ss from "../../src/image/sekiro.jpg"
-import mhw from "../../src/image/mhw.jpg"
+import React from 'react';
+import lol from '../image/league.jpg';
+import ss from '../image/sekiro.jpg';
+import mhw from '../image/mhw.jpg';
+/* global document */
 
-export class Games extends Component {
-    componentDidMount(){
-        var scrollComponent = this;
-        document.addEventListener("scroll",function(e){
-          scrollComponent.scrollFunction();
-        });
-      }
-        scrollFunction(){
-        var topbutton = document.getElementById("topBut");
-            if(document.documentElement.scrollTop > document.documentElement.clientHeight/4){
-                topbutton.style.display = "block";
-            }else{
-                topbutton.style.display = "none";
-            }
-        }
-    
-        topFunction(){
-        document.documentElement.scrollTop=0;
-        }
-    render() {
-        return (
+export class Games extends React.Component {
+  componentDidMount() {
+    const scrollComponent = this;
+    document.addEventListener('scroll', () => {
+      scrollComponent.scrollFunction();
+    });
+  }
+
+  scrollFunction = () => {
+    const topbutton = document.getElementById('topBut');
+    if (document.documentElement.scrollTop > document.documentElement.clientHeight / 4) {
+      topbutton.style.display = 'block';
+    } else {
+      topbutton.style.display = 'none';
+    }
+  }
+
+  topFunction = () => {
+    document.documentElement.scrollTop = 0;
+  }
+
+  render() {
+    return (
             <div>
                 <button onClick={this.topFunction} id="topBut" title="Go up">Top</button>
 			<div>
@@ -32,7 +35,7 @@ export class Games extends Component {
 				</p>
 			</div>
 			<div>
-				<div class="games">
+				<div className="games">
 					<div>
 						<a href="https://na.leagueoflegends.com/en-us/">
                             <img src={lol} alt="" />
@@ -46,7 +49,7 @@ export class Games extends Component {
 					</div>
 				</div>
 
-				<div class="games">
+				<div className="games">
 					<div>
 						<a href="https://www.sekirothegame.com">
                             <img src={ss} alt="" />
@@ -59,7 +62,7 @@ export class Games extends Component {
 					</div>
 				</div>
 
-				<div class="games">
+				<div className="games">
 					<div>
 						<a href="https://www.monsterhunterworld.com/us/">
                             <img src={mhw} alt = "" />
@@ -73,8 +76,8 @@ export class Games extends Component {
 				</div>
 			</div>
 		</div>
-        );
-    }
+    );
+  }
 }
 
 export default Games;

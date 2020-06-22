@@ -1,3 +1,10 @@
 module.exports = {
-  extends: 'airbnb-base',
+  parser: 'babel-eslint',
+  extends: [
+    'airbnb-base',
+    "plugin:react/recommended"
+  ],
+  rules:{
+    'no-tabs': 0
+  }
 };
