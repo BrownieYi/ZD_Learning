@@ -5,6 +5,11 @@ module.exports = {
     "plugin:react/recommended"
   ],
   rules:{
-    'no-tabs': 0
-  }
+    'no-tabs': 0,
+    "react-hooks/rules-of-hooks": 'error',
+    "react-hooks/exhaustive-deps": 'warn'
+  },
+  plugins: [
+    'react-hooks'
+  ]
 };
