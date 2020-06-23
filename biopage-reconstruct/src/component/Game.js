@@ -1,34 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import lol from '../image/league.jpg';
 import ss from '../image/sekiro.jpg';
 import mhw from '../image/mhw.jpg';
 /* global document */
 
-export class Games extends React.Component {
-  componentDidMount() {
-    const scrollComponent = this;
-    document.addEventListener('scroll', () => {
-      scrollComponent.scrollFunction();
-    });
-  }
-
-  scrollFunction = () => {
+const Game = () => {
+  const scrollFunction = () => {
     const topbutton = document.getElementById('topBut');
     if (document.documentElement.scrollTop > document.documentElement.clientHeight / 4) {
       topbutton.style.display = 'block';
     } else {
       topbutton.style.display = 'none';
     }
-  }
+  };
 
-  topFunction = () => {
+  useEffect(() => {
+    document.addEventListener('scroll', () => {
+      scrollFunction();
+    });
+  }, []);
+
+  const topFunction = () => {
     document.documentElement.scrollTop = 0;
-  }
-
-  render() {
-    return (
+  };
+  return (
             <div>
-                <button onClick={this.topFunction} id="topBut" title="Go up">Top</button>
+                <button onClick={topFunction} id="topBut" title="Go up">Top</button>
 			<div>
 				<p>
 				These are some of the games I currently play.
@@ -76,8 +73,6 @@ export class Games extends React.Component {
 				</div>
 			</div>
 		</div>
-    );
-  }
-}
-
-export default Games;
+  );
+};
+export default Game;

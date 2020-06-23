@@ -4,10 +4,10 @@ import {
   Route,
   Link,
   useRouteMatch,
+  useParams,
 } from 'react-router-dom';
-import User from './User';
 
-const Topics = function Tps() {
+const Users = () => {
   const match = useRouteMatch();
 
   return (
@@ -32,4 +32,9 @@ const Topics = function Tps() {
       </div>
   );
 };
-export default Topics;
+
+function User() {
+  const { userId } = useParams();
+  return <h3>Requested topic ID: {userId}</h3>;
+}
+export default Users;

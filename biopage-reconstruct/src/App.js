@@ -4,10 +4,9 @@ import {
   Switch,
   Route,
   Link,
-  Redirect,
 } from 'react-router-dom';
-import home from './component/Home';
-import game from './component/Game';
+import Home from './component/Home';
+import Game from './component/Game';
 import Users from './component/Users';
 import './App.css';
 
@@ -18,7 +17,7 @@ export default function App() {
         <nav>
           <div className = "nav-bar">
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/game">Game</Link>
@@ -32,13 +31,14 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route exact path="/game" component={game}/>
+          <Route path="/game">
+            <Game />
+          </Route>
           <Route exact path="/users">
             <Users />
           </Route>
-          <Route exact path="/home" component={home}/>
           <Route exact path="/">
-            <Redirect to="/home" />
+            <Home />
           </Route>
         </Switch>
       </div>
