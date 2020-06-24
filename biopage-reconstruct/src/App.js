@@ -8,6 +8,7 @@ import {
 import Home from './component/Home';
 import Game from './component/Game';
 import Users from './component/Users';
+import movies from './component/Movies';
 import './App.css';
 
 export default function App() {
@@ -25,6 +26,9 @@ export default function App() {
             <li>
               <Link to="/users">Users</Link>
             </li>
+            <li>
+              <Link to="/movies">Movies</Link>
+            </li>
           </div>
         </nav>
 
@@ -37,6 +41,7 @@ export default function App() {
           <Route exact path="/users">
             <Users />
           </Route>
+          <Route exact path="/movies" component={movies} />
           <Route exact path="/">
             <Home />
           </Route>

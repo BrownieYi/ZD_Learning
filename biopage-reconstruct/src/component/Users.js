@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Switch,
+  BrowserRouter as Router,
   Route,
   Link,
   useRouteMatch,
@@ -9,8 +10,8 @@ import {
 
 const Users = () => {
   const match = useRouteMatch();
-
   return (
+    <Router>
       <div>
         <ul>
           <li>
@@ -30,6 +31,7 @@ const Users = () => {
           </Route>
         </Switch>
       </div>
+    </Router>
   );
 };
 

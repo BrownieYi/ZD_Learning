@@ -31,3 +31,5 @@
 |29|`Unexpected tab character.`|in file .eslintrc.js, in rules set 'no-tabs' to 0|||1|
 |30|`Unknown property 'class' found, use 'className' instead`|change class to className|`<div class="games">`|`<div className="games">`|3|
 |31|`This line has a length of 168. Maximum allowed is 100.`|disable it|||1|
+|32|`'xxx' is missing in props validation`|install prop-types, define propTypes as a static getter|||1|
+|33|`Missing "key" prop for element in iterator`|add a key prop into jsx|||1|
