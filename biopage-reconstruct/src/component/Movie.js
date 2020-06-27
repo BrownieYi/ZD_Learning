@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Qs from 'qs';
 
 const axios = require('axios');
 
@@ -45,7 +46,8 @@ export class Movie extends Component {
   }
 
   render() {
-    const req = `https://www.omdbapi.com/?apikey=d3881b2d&i=${this.props.movie}`;
+    // const req = `https://www.omdbapi.com/?apikey=d3881b2d&i=${this.props.movie}`;
+    const req = `https://www.omdbapi.com/?${Qs.stringify({ apikey: 'd3881b2d', i: this.props.movie })}`;
     return (
       <div className='mov-child'>
         {this.getMovieInfo(this, req)}
