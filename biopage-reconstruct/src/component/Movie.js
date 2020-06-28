@@ -2,12 +2,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Qs from 'qs';
+import API from '../api/API';
 
 const axios = require('axios');
 
 export class Movie extends Component {
   constructor() {
     super();
+    this.api = new API();
     this.state = {
       src: '',
       title: '',

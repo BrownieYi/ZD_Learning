@@ -33,3 +33,5 @@
 |31|`This line has a length of 168. Maximum allowed is 100.`|disable it|||1|
 |32|`'xxx' is missing in props validation`|install prop-types, define propTypes as a static getter|||1|
 |33|`Missing "key" prop for element in iterator`|add a key prop into jsx|||1|
+|34|`Expected an assignment or function call and instead saw an expression.`|delete the line since it is useless.|||1|
+
