@@ -41,9 +41,14 @@
 ## Referrer Policy
 
 `It controls how much referrer information (sent via the Referer header) should be included with requests.`
+<br>Default: no-referrer-when-down-grade
 
-## param payload
+## 请求参数
+### param payload
 
+>用于post
+### Query String Parameters
+>用于get
 Content-Length: `It indicates the size of the entity-body, in bytes, sent to the recipient.`
 
 Content-Range: `It indicates where in a full body message a partial message belongs.`
@@ -51,5 +56,6 @@ Content-Range: `It indicates where in a full body message a partial message belo
 ## Content Type
 `It is used to indicate the media type of the source.`
 
-## CORS
+## CORS 
 `Cross-origin Resource Sharing, gives a web app at one origin the access to a different origin.`
+

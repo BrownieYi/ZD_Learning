@@ -13,7 +13,7 @@ import Qs from 'qs';
 export default {
   url: '',
   method: 'get',
-  baseURL: 'https://www.omdbapi.com/?',
+  baseURL: 'https://www.omdbapi.com',
   // headers: {'Content-Type': 'application/x-www-form-urlencoded'},
   headers: { 'Content-Type': 'application/json' },
   // 如果data存在的话stringify 'data'

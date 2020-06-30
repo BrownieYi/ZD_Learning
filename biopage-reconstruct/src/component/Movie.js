@@ -1,15 +1,11 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Qs from 'qs';
 import API from '../api/API';
-
-const axios = require('axios');
 
 export class Movie extends Component {
   constructor() {
     super();
-    this.api = new API();
     this.state = {
       src: '',
       title: '',
@@ -34,8 +30,11 @@ export class Movie extends Component {
     e.target.style.opacity = 1;
   }
 
-  getMovieInfo = (obj, req) => {
-    axios.get(req)
+  getMovieInfo = (obj) => {
+    const param = { apikey: 'd3881b2d', i: this.props.movie };
+    const api = new API();
+    api
+      .get('', param)
       .then((response) => {
         obj.setState({
           src: response.data.Poster,
@@ -48,11 +47,11 @@ export class Movie extends Component {
   }
 
   render() {
-    // const req = `https://www.omdbapi.com/?apikey=d3881b2d&i=${this.props.movie}`;
-    const req = `https://www.omdbapi.com/?${Qs.stringify({ apikey: 'd3881b2d', i: this.props.movie })}`;
+    // const req = `https://www.omdbapi.com/?apikey=d3881b2d&i=${props.movie}`;
+    // const req = `https://www.omdbapi.com/?${Qs.stringify({ apikey: 'd3881b2d', i: props.movie })}`;
     return (
       <div className='mov-child'>
-        {this.getMovieInfo(this, req)}
+        {this.getMovieInfo(this)}
         <img src={this.state.src} onMouseEnter={this.dimPoster} onMouseLeave={this.resetPoster} onClick={this.props.modal.bind(this, this.state.src, this.state.title, this.state.director, this.state.imdb, this.state.plot)} alt={this.state.title}/>
       </div>
     );
