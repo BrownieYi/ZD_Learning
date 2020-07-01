@@ -16,7 +16,10 @@ export default {
   baseURL: 'https://www.omdbapi.com',
   // headers: {'Content-Type': 'application/x-www-form-urlencoded'},
   headers: { 'Content-Type': 'application/json' },
-  // 如果data存在的话stringify 'data'
+  /**
+   * @description 将输入的 application/json 转化为 application/x-www-form-urlencoded
+   * @param {object} data 将被转化的application/json
+   */
   transformRequest: [function (data) {
     if (data) {
       data = Qs.stringify(data);
@@ -33,7 +36,10 @@ export default {
     }
     // return data
   }], */
-  // 将data变成js object并去掉左右的空格
+  /**
+   * @description 将输入的字符串转换为js object
+   * @param {string} 将被转换的字符串
+   */
   transformResponse: [function (data) {
     // console.error('transformResponse', data)
     /* eslint no-param-reassign:0 */
