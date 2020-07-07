@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Viewer from "cesium/Source/Widgets/Viewer/Viewer";
+
+class App extends Component {  
+    componentDidMount() {
+        this.viewer = new Viewer(this.cesiumContainer);
+    }
+
+    render() {
+        return (
+            <div>
+                <div id="cesiumContainer" ref={ element => this.cesiumContainer = element }/>
+            </div>
+        );
+    }
 }
 
-export default App;
+export default App
