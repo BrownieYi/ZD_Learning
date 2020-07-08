@@ -4,6 +4,7 @@ import Viewer from 'cesium/Source/Widgets/Viewer/Viewer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Appbar from './components/Appbar';
 import './App.css';
+import './cesium.scss';
 
 class App extends Component {
   componentDidMount() {
@@ -19,11 +20,10 @@ class App extends Component {
         <Appbar />
       </React.Fragment>
       <React.Fragment>
-        <div id="cesiumContainer" ref={ (element) => this.cesiumContainer = element } style={{
+        <div className="cesiumWindow" id="cesiumContainer" ref={ (element) => this.cesiumContainer = element } style={{
           position: 'absolute',
           left: 70,
           top: 64,
-          width: '89.388vw',
         }}/>
       </React.Fragment>
       </div>
