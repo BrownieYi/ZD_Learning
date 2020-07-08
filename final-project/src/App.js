@@ -19,7 +19,12 @@ class App extends Component {
         <Appbar />
       </React.Fragment>
       <React.Fragment>
-        <div id="cesiumContainer" ref={ (element) => this.cesiumContainer = element }/>
+        <div id="cesiumContainer" ref={ (element) => this.cesiumContainer = element } style={{
+          position: 'absolute',
+          left: 70,
+          top: 64,
+          width: '89.388vw',
+        }}/>
       </React.Fragment>
       </div>
     );

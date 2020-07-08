@@ -1,14 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 
-class Search extends Component {
-  // eslint-disable-next-line class-methods-use-this
-  render() {
-    return (
-            <div>
-                Search
-            </div>
-    );
-  }
-}
+const useStyles = makeStyles(() => ({
+  card: {
+    marginTop: 65,
+    height: 600,
+    width: 300,
+  },
+}));
 
+const Search = () => {
+  const classes = useStyles();
+  return (
+  <Card className={classes.card}>
+    <CardActionArea>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+          Search
+        </Typography>
+      </CardContent>
+    </CardActionArea>
+    <CardActions>
+    </CardActions>
+  </Card>
+  );
+};
 export default Search;
