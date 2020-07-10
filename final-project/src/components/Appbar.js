@@ -17,12 +17,12 @@ import SearchIcon from '@material-ui/icons/Search';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Collapse from '@material-ui/core/Collapse';
+// import Fade from '@material-ui/core/Fade';
 
 import Mode from './Mode';
 import Home from './Home';
 import Search from './Search';
-
-/* global document */
 
 const drawerWidth = 150;
 
@@ -86,23 +86,21 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-  card: {
-    marginTop: 65,
-    height: 600,
-    width: 300,
-  },
 }));
 
 export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [modeChecked, setModeChecked] = React.useState(false);
+  const [homeChecked, setHomeChecked] = React.useState(false);
+  const [searchChecked, setSearchChecked] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
-    document.getElementById('homeCard').style.display = 'none';
-    document.getElementById('modeCard').style.display = 'none';
-    document.getElementById('searchCard').style.display = 'none';
+    setModeChecked(false);
+    setSearchChecked(false);
+    setHomeChecked(false);
   };
 
   const handleDrawerClose = () => {
@@ -156,69 +154,42 @@ export default function MiniDrawer() {
        <List>
          <ListItem button onClick = {function () {
            handleDrawerClose();
-           document.getElementById('modeCard').style.display = 'none';
-           document.getElementById('searchCard').style.display = 'none';
-           if (document.getElementById('homeCard').style.display === 'block') {
-             document.getElementById('homeCard').style.display = 'none';
-           } else {
-             document.getElementById('homeCard').style.display = 'block';
-           }
+           setHomeChecked((prev) => !prev);
+           setModeChecked(false);
+           setSearchChecked(false);
          }}>
            <ListItemIcon><HomeIcon /></ListItemIcon>
            <ListItemText>Home</ListItemText>
          </ListItem>
          <ListItem button onClick = {function () {
            handleDrawerClose();
-           document.getElementById('homeCard').style.display = 'none';
-           document.getElementById('searchCard').style.display = 'none';
-           if (document.getElementById('modeCard').style.display === 'block') {
-             document.getElementById('modeCard').style.display = 'none';
-           } else {
-             document.getElementById('modeCard').style.display = 'block';
-           }
+           setModeChecked((prev) => !prev);
+           setHomeChecked(false);
+           setSearchChecked(false);
          }}>
            <ListItemIcon><PublicIcon /></ListItemIcon>
            <ListItemText>Mode</ListItemText>
          </ListItem>
          <ListItem button onClick = {function () {
            handleDrawerClose();
-           document.getElementById('homeCard').style.display = 'none';
-           document.getElementById('modeCard').style.display = 'none';
-           if (document.getElementById('searchCard').style.display === 'block') {
-             document.getElementById('searchCard').style.display = 'none';
-           } else {
-             document.getElementById('searchCard').style.display = 'block';
-           }
+           setSearchChecked((prev) => !prev);
+           setModeChecked(false);
+           setHomeChecked(false);
          }}>
            <ListItemIcon><SearchIcon /></ListItemIcon>
            <ListItemText>Search</ListItemText>
          </ListItem>
        </List>
       </Drawer>
-      <div id ="modeCard" style={{
-        display: 'none',
-        zIndex: 1000,
-        position: 'absolute',
-        left: 70,
-      }}>
+      <Collapse in={modeChecked}>
         <Mode />
-      </div>
-      <div id ="homeCard" style={{
-        display: 'none',
-        zIndex: 1000,
-        position: 'absolute',
-        left: 70,
-      }}>
+      </Collapse>
+      <Collapse in={homeChecked}>
         <Home />
-      </div>
-      <div id ="searchCard" style={{
-        display: 'none',
-        zIndex: 1000,
-        position: 'absolute',
-        left: 70,
-      }}>
+      </Collapse>
+      <Collapse in={searchChecked}>
         <Search />
-      </div>
+      </Collapse>
       <main className={classes.content}>
         <div className={classes.toolbar} />
       </main>
