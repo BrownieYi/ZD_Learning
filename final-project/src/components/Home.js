@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
@@ -13,15 +12,11 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+// import grey from '@material-ui/core/colors/grey';
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    marginTop: 65,
-    height: 600,
-    width: 300,
-    zIndex: 1000,
-    position: 'absolute',
-    left: 73.199997,
+    height: 'calc(100vh - 67px)',
   },
   form: {
     '& > *': {
@@ -42,10 +37,11 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     width: '25ch',
     top: 50,
+    marginLeft: 30,
   },
 }));
 
-const Home = () => {
+const Home = (props) => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     password: '',
@@ -61,8 +57,8 @@ const Home = () => {
     event.preventDefault();
   };
   return (
+  <div {...props}>
   <Card className={classes.card}>
-    <CardContent>
       <FormControl className={clsx(classes.margin, classes.textField)}>
         <TextField variant="outlined" label="User Name" />
       </FormControl>
@@ -88,11 +84,11 @@ const Home = () => {
             labelWidth={70}
           />
       </FormControl>
-    </CardContent>
     <CardActions>
-      <Button className={classes.submit} variant="contained" color="primary" >Log In</Button>
+      <Button className={classes.submit} variant="contained" color="secondary" >Log In</Button>
     </CardActions>
   </Card>
+  </div>
   );
 };
 export default Home;

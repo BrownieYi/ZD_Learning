@@ -1,6 +1,12 @@
+/* eslint-disable no-shadow */
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {
+  makeStyles,
+  useTheme,
+  createMuiTheme,
+  ThemeProvider,
+} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -8,6 +14,7 @@ import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import Divider from '@material-ui/core/Divider';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -17,14 +24,25 @@ import SearchIcon from '@material-ui/icons/Search';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-// import Fade from '@material-ui/core/Fade';
-
+import { Motion, spring } from 'react-motion';
+import deepPurple from '@material-ui/core/colors/deepPurple';
+import grey from '@material-ui/core/colors/grey';
 import Mode from './Mode';
 import Home from './Home';
 import Search from './Search';
 
 const drawerWidth = 150;
+
+const theme1 = createMuiTheme({
+  palette: {
+    primary: {
+      main: grey[200],
+    },
+    secondary: {
+      main: deepPurple[200],
+    },
+  },
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,18 +70,20 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   drawer: {
-    width: drawerWidth,
+    // width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
   },
   drawerOpen: {
     width: drawerWidth,
+    backgroundColor: grey[200],
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
   drawerClose: {
+    backgroundColor: grey[200],
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -82,9 +102,12 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
   },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
+  card: {
+    width: 300,
+    position: 'relative',
+    marginTop: 65,
+    zIndex: 100,
+    height: 'calc(100vh - 67px)',
   },
 }));
 
@@ -107,7 +130,16 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
+  const cardRenderChildren = function (interpolatingStyle) {
+    return <div className={classes.card} style={interpolatingStyle}>
+        {modeChecked && <Mode/>}
+        {searchChecked && <Search/>}
+        {homeChecked && <Home/>}
+    </div>;
+  };
+
   return (
+    <ThemeProvider theme={theme1}>
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
@@ -151,8 +183,9 @@ export default function MiniDrawer() {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>
+        <Divider />
        <List>
-         <ListItem button onClick = {function () {
+         <ListItem button onClick = { function () {
            handleDrawerClose();
            setHomeChecked((prev) => !prev);
            setModeChecked(false);
@@ -181,18 +214,10 @@ export default function MiniDrawer() {
          </ListItem>
        </List>
       </Drawer>
-      <Collapse in={modeChecked}>
-        <Mode />
-      </Collapse>
-      <Collapse in={homeChecked}>
-        <Home />
-      </Collapse>
-      <Collapse in={searchChecked}>
-        <Search />
-      </Collapse>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-      </main>
+      <Motion defaultStyle={{ x: 0 }} style={{ x: spring(10) }}>
+          {cardRenderChildren}
+      </Motion>
     </div>
+    </ThemeProvider>
   );
 }

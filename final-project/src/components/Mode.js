@@ -1,22 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   card: {
-    marginTop: 65,
-    height: 600,
-    width: 300,
-    zIndex: 1000,
-    position: 'absolute',
-    left: 73.199997,
-    top: 0,
+    height: 'calc(100vh - 67px)',
   },
   but: {
-    margin: theme.spacing(1),
-    left: 36,
+    marginTop: 43,
+    marginLeft: 43,
     width: '25ch',
     height: '20ch',
   },
@@ -27,16 +20,15 @@ const Mode = (props) => {
   const [clean, setClean] = React.useState(false);
   const [discover, setDiscover] = React.useState(false);
   const [all, setAll] = React.useState(false);
-  return (<div {...props}>
+  return (
+  <div {...props}>
   <Card className={classes.card}>
-      <CardContent>
-      </CardContent>
       <Button
         disabled= {clean}
         size="large"
         className={classes.but}
         variant="contained"
-        color="primary"
+        color="secondary"
         onClick= {function () {
           setClean(true);
           setDiscover(false);
@@ -50,7 +42,7 @@ const Mode = (props) => {
         size="large"
         className={classes.but}
         variant="contained"
-        color="primary"
+        color="secondary"
         onClick= {function () {
           setClean(false);
           setDiscover(true);
@@ -64,7 +56,7 @@ const Mode = (props) => {
         size="large"
         className={classes.but}
         variant="contained"
-        color="primary"
+        color="secondary"
         onClick= {function () {
           setClean(false);
           setDiscover(false);
@@ -73,6 +65,7 @@ const Mode = (props) => {
       >All
       </Button>
   </Card>
-  </div>);
+  </div>
+  );
 };
 export default Mode;
