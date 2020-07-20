@@ -1,0 +1,80 @@
+{
+    "geocoding":{
+        "version":"0.2",
+        "attribution":"http://internal-a48438b94377d11e8bb4716cd6d45170-1439591168.us-east-1.elb.amazonaws.com:3100/v1/attribution",
+        "query":{
+            "text":"california",
+            "parser":"addressit",
+            "parsed_text":{
+                "state":"CA",
+                "regions":[]
+            },
+            "tokens":["california"],
+            "size":10,
+            "private":false,
+            "lang":{
+                "name":"English","iso6391":"en","iso6393":"eng","defaulted":true
+            }
+        },
+        "engine":{
+            "name":"Pelias",
+            "author":"Mapzen",
+            "version":"1.0"
+        },
+        "timestamp":1595217416076
+    },
+    "type":"FeatureCollection",
+    "features":[
+        {
+            "type":"Feature",
+            "geometry":{
+                "type":"Point",
+                "coordinates":[-119.586168,36.531544]
+            },
+            "properties":{
+                "id":"85688637",
+                "gid":"whosonfirst:region:85688637",
+                "layer":"region",
+                "source":"whosonfirst",
+                "source_id":"85688637",
+                "name":"California",
+                "accuracy":"centroid",
+                "country":"United States",
+                "country_gid":"whosonfirst:country:85633793",
+                "country_a":"USA",
+                "region":"California",
+                "region_gid":"whosonfirst:region:85688637",
+                "region_a":"CA","continent":"North America",
+                "continent_gid":"whosonfirst:continent:102191575",
+                "label":"California, USA"
+            },
+            "bbox":[-124.482003,32.528832,-114.131211,42.009517]
+        },
+        {
+            "type":"Feature",
+            "geometry":{
+                "type":"Point",
+                "coordinates":[-116.78467,34.68743]
+            },
+            "properties":{
+                "id":"11071615",
+                "gid":"geonames:venue:11071615",
+                "layer":"venue",
+                "source":"geonames",
+                "source_id":"11071615",
+                "name":"Southern California",
+                "accuracy":"point",
+                "country":"United States",
+                "country_gid":"whosonfirst:country:85633793",
+                "country_a":"USA",
+                "region":"California",
+                "region_gid":"whosonfirst:region:85688637",
+                "region_a":"CA",
+                "county":"San Bernardino County",
+                "county_gid":"whosonfirst:county:102085395",
+                "continent":"North America",
+                "continent_gid":"whosonfirst:continent:102191575",
+                "label":"Southern California, San Bernardino County, CA, USA"
+            }
+        },
+        {"type":"Feature","geometry":{"type":"Point","coordinates":[-117.749051,33.605787]},"properties":{"id":"85886151","gid":"whosonfirst:neighbourhood:85886151","layer":"neighbourhood","source":"whosonfirst","source_id":"85886151","name":"California Cove","accuracy":"centroid","country":"United States","country_gid":"whosonfirst:country:85633793","country_a":"USA","region":"California","region_gid":"whosonfirst:region:85688637","region_a":"CA","county":"Orange County","county_gid":"whosonfirst:county:102080847","locality":"Laguna Woods","locality_gid":"whosonfirst:locality:85923111","neighbourhood":"California Cove","neighbourhood_gid":"whosonfirst:neighbourhood:85886151","continent":"North America","continent_gid":"whosonfirst:continent:102191575","label":"California Cove, Laguna Woods, CA, USA"},"bbox":[-117.78717041,33.5815821789,-117.722936579,33.626254724]},{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.178548,33.821856]},"properties":{"id":"85808865","gid":"whosonfirst:neighbourhood:85808865","layer":"neighbourhood","source":"whosonfirst","source_id":"85808865","name":"California Heights","accuracy":"centroid","country":"United States","country_gid":"whosonfirst:country:85633793","country_a":"USA","region":"California","region_gid":"whosonfirst:region:85688637","region_a":"CA","county":"Los Angeles County","county_gid":"whosonfirst:county:102086957","locality":"Long Beach","locality_gid":"whosonfirst:locality:85923525","neighbourhood":"California Heights","neighbourhood_gid":"whosonfirst:neighbourhood:85808865","continent":"North America","continent_gid":"whosonfirst:continent:102191575","label":"California Heights, Long Beach, CA, USA"},"bbox":[-118.179931641,33.7942557716,-118.152868124,33.8339199537]},{"type":"Feature","geometry":{"type":"Point","coordinates":[-121.766315,37.235976]},"properties":{"id":"85887539","gid":"whosonfirst:neighbourhood:85887539","layer":"neighbourhood","source":"whosonfirst","source_id":"85887539","name":"California Maison","accuracy":"centroid","country":"United States","country_gid":"whosonfirst:country:85633793","country_a":"USA","region":"California","region_gid":"whosonfirst:region:85688637","region_a":"CA","county":"Santa Clara County","county_gid":"whosonfirst:county:102081673","locality":"San Jose","locality_gid":"whosonfirst:locality:85922347","neighbourhood":"California Maison","neighbourhood_gid":"whosonfirst:neighbourhood:85887539","continent":"North America","continent_gid":"whosonfirst:continent:102191575","label":"California Maison, San Jose, CA, USA"},"bbox":[-121.768868046,37.2264684552,-121.746588903,37.2396888912]},{"type":"Feature","geometry":{"type":"Point","coordinates":[-122.266209,37.533098]},"properties":{"id":"85885627","gid":"whosonfirst:neighbourhood:85885627","layer":"neighbourhood","source":"whosonfirst","source_id":"85885627","name":"California Cottages","accuracy":"centroid","country":"United States","country_gid":"whosonfirst:country:85633793","country_a":"USA","region":"California","region_gid":"whosonfirst:region:85688637","region_a":"CA","county":"San Mateo County","county_gid":"whosonfirst:county:102085387","locality":"Redwood City","locality_gid":"whosonfirst:locality:85922447","neighbourhood":"California Cottages","neighbourhood_gid":"whosonfirst:neighbourhood:85885627","continent":"North America","continent_gid":"whosonfirst:continent:102191575","label":"California Cottages, Redwood City, CA, USA"},"bbox":[-122.27895048,37.5258717182,-122.258605957,37.5416321728]},{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.980756,35.134635]},"properties":{"id":"85923303","gid":"whosonfirst:locality:85923303","layer":"locality","source":"whosonfirst","source_id":"85923303","name":"California City","accuracy":"centroid","country":"United States","country_gid":"whosonfirst:country:85633793","country_a":"USA","region":"California","region_gid":"whosonfirst:region:85688637","region_a":"CA","county":"Kern County","county_gid":"whosonfirst:county:102081727","locality":"California City","locality_gid":"whosonfirst:locality:85923303","continent":"North America","continent_gid":"whosonfirst:continent:102191575","label":"California City, CA, USA"},"bbox":[-118.134453,35.014038,-117.630863,35.277445]},{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.87199,35.15778]},"properties":{"id":"7173105","gid":"geonames:localadmin:7173105","layer":"localadmin","source":"geonames","source_id":"7173105","name":"City of California City","accuracy":"centroid","country":"United States","country_gid":"whosonfirst:country:85633793","country_a":"USA","region":"California","region_gid":"whosonfirst:region:85688637","region_a":"CA","county":"Kern County","county_gid":"whosonfirst:county:102081727","localadmin":"City of California City","localadmin_gid":"geonames:localadmin:7173105","continent":"North America","continent_gid":"whosonfirst:continent:102191575","label":"City of California City, CA, USA"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.648001,33.669966]},"properties":{"id":"85886459","gid":"whosonfirst:neighbourhood:85886459","layer":"neighbourhood","source":"whosonfirst","source_id":"85886459","name":"California Court","accuracy":"centroid","country":"United States","country_gid":"whosonfirst:country:85633793","country_a":"USA","region":"California","region_gid":"whosonfirst:region:85688637","region_a":"CA","county":"Orange County","county_gid":"whosonfirst:county:102080847","locality":"Lake Forest","locality_gid":"whosonfirst:locality:85923103","neighbourhood":"California Court","neighbourhood_gid":"whosonfirst:neighbourhood:85886459","continent":"North America","continent_gid":"whosonfirst:continent:102191575","label":"California Court, Lake Forest, CA, USA"},"bbox":[-117.650792529,33.6573574136,-117.637608285,33.6754650284]},{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.466126,34.13092]},"properties":{"id":"420551987","gid":"whosonfirst:neighbourhood:420551987","layer":"neighbourhood","source":"whosonfirst","source_id":"420551987","name":"California Landings","accuracy":"centroid","country":"United States","country_gid":"whosonfirst:country:85633793","country_a":"USA","region":"California","region_gid":"whosonfirst:region:85688637","region_a":"CA","county":"San Bernardino County","county_gid":"whosonfirst:county:102085395","locality":"Fontana","locality_gid":"whosonfirst:locality:85923901","neighbourhood":"California Landings","neighbourhood_gid":"whosonfirst:neighbourhood:420551987","continent":"North America","continent_gid":"whosonfirst:continent:102191575","label":"California Landings, Fontana, CA, USA"},"bbox":[-117.475378,34.123182,-117.455623,34.139531]}],"bbox":[-124.482003,32.528832,-114.131211,42.009517]}

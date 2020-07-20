@@ -13,7 +13,9 @@ import HistoryIcon from '@material-ui/icons/History';
 import { Button, TextField } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
+// import Autocomplete from '@material-ui/lab/Autocomplete';
 import cookie from 'js-cookie';
+import API from '../api/API';
 
 export const CookieName = 'zondy-learning-name';
 cookie.set(CookieName, []);
@@ -43,8 +45,25 @@ const Search = (props) => {
   let searchHistory = [];
   const [searchValue, setSearchValue] = React.useState('');
   const [his, setHis] = React.useState(cookie.get(CookieName));
+  const [searchNames, setSearchNames] = React.useState([]);
   const handleChange = (event) => {
     setSearchValue(event.target.value);
+    setSearchNames([]);
+    if (searchValue !== '') {
+      const param = { text: searchValue, access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzZTRiMGQxOS0zZTZjLTRhYmYtYmE1ZS1hNjJjNDM1NzNjYmEiLCJpZCI6MzA0NjAsInNjb3BlcyI6WyJhc2wiLCJhc3IiLCJhc3ciLCJnYyIsInByIl0sImlhdCI6MTU5Mzc2MzUwM30.TlS6B0HhmY8gHfLOvZxUzbJnRkoyTEHRXAY9BxlW-E4' };
+      const api = new API();
+      api
+        .get('', param)
+        .then((response) => {
+          for (let i = 0; i < response.data.features.length; i += 1) {
+            const names = response.data.features[i].properties.name;
+            searchNames.push(names);
+            setSearchNames(setSearchNames);
+            console.log(searchNames);
+          }
+        });
+    }
+    console.log(searchValue);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,7 +78,6 @@ const Search = (props) => {
       }
       setHis(cookie.get(CookieName));
       setSearchValue('');
-      console.log(cookie.get(CookieName));
     }
   };
   const hists = JSON.parse(his);
