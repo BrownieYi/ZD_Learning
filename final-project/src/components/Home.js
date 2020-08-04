@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home = (props) => {
+const Home = () => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     password: '',
@@ -57,7 +57,6 @@ const Home = (props) => {
     event.preventDefault();
   };
   return (
-  <div {...props}>
   <Card className={classes.card}>
       <FormControl className={clsx(classes.margin, classes.textField)}>
         <TextField variant="outlined" label="User Name" />
@@ -88,7 +87,6 @@ const Home = (props) => {
       <Button className={classes.submit} variant="contained" color="secondary" >Log In</Button>
     </CardActions>
   </Card>
-  </div>
   );
 };
 export default Home;

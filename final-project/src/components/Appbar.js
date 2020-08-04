@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-shadow */
 import React from 'react';
 import clsx from 'clsx';
@@ -111,13 +112,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MiniDrawer() {
+// eslint-disable-next-line react/prop-types
+const MiniDrawer = ({ pushLocation2 }) => {
+  // eslint-disable-next-line no-unused-vars
+  let locationToApp = [];
   const classes = useStyles();
   const theme = useTheme();
+  const [location, setLocation] = React.useState([]);
   const [open, setOpen] = React.useState(false);
   const [modeChecked, setModeChecked] = React.useState(false);
   const [homeChecked, setHomeChecked] = React.useState(false);
   const [searchChecked, setSearchChecked] = React.useState(false);
+
+  // React.useEffect(() => {
+  //   if (props.pushLocation2) {
+  //     locationUp = location;
+  //     props.pushLocation2(locationUp);
+  //   }
+  // }, [location]);
+
+  const getLocation = (loc) => {
+    console.log(loc);
+    setLocation(loc);
+    locationToApp = location;
+    pushLocation2(loc);
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -133,7 +152,7 @@ export default function MiniDrawer() {
   const cardRenderChildren = function (interpolatingStyle) {
     return <div className={classes.card} style={interpolatingStyle}>
         {modeChecked && <Mode/>}
-        {searchChecked && <Search/>}
+        {searchChecked && <Search pushLocation={getLocation}/>}
         {homeChecked && <Home/>}
     </div>;
   };
@@ -220,4 +239,5 @@ export default function MiniDrawer() {
     </div>
     </ThemeProvider>
   );
-}
+};
+export default MiniDrawer;

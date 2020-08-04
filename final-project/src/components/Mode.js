@@ -15,13 +15,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Mode = (props) => {
+const Mode = () => {
   const classes = useStyles();
   const [clean, setClean] = React.useState(false);
   const [discover, setDiscover] = React.useState(false);
   const [all, setAll] = React.useState(false);
   return (
-  <div {...props}>
   <Card className={classes.card}>
       <Button
         disabled= {clean}
@@ -65,7 +64,6 @@ const Mode = (props) => {
       >All
       </Button>
   </Card>
-  </div>
   );
 };
 export default Mode;

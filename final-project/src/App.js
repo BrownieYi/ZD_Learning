@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-return-assign */
 import React, { Component } from 'react';
 import Viewer from 'cesium/Source/Widgets/Viewer/Viewer';
@@ -5,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import {
   Ion,
   createWorldTerrain,
+  Cartesian3,
   // Resource,
   // Rectangle,
 } from 'cesium';
@@ -14,39 +16,20 @@ import './cesium.scss';
 
 Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzZTRiMGQxOS0zZTZjLTRhYmYtYmE1ZS1hNjJjNDM1NzNjYmEiLCJpZCI6MzA0NjAsInNjb3BlcyI6WyJhc2wiLCJhc3IiLCJhc3ciLCJnYyIsInByIl0sImlhdCI6MTU5Mzc2MzUwM30.TlS6B0HhmY8gHfLOvZxUzbJnRkoyTEHRXAY9BxlW-E4';
 class App extends Component {
-  componentDidMount() {
-    // function OpenStreetMapNominatimGeocoder() {}
-    // OpenStreetMapNominatimGeocoder.prototype.geocode = function (input) {
-    //   const endpoint = 'https://nominatim.openstreetmap.org/search';
-    //   const resource = new Resource({
-    //     url: endpoint,
-    //     queryParameters: {
-    //       format: 'json',
-    //       q: input,
-    //     },
-    //   });
+  constructor(props) {
+    super(props);
+    this.state = {
+      location: [],
+    };
+    this.getLocation = this.getLocation.bind(this);
+  }
 
-    //   return resource.fetchJson().then((results) => {
-    //     let bboxDegrees;
-    //     return results.map((resultObject) => {
-    //       bboxDegrees = resultObject.boundingbox;
-    //       return {
-    //         displayName: resultObject.display_name,
-    //         destination: Rectangle.fromDegrees(
-    //           bboxDegrees[2],
-    //           bboxDegrees[0],
-    //           bboxDegrees[3],
-    //           bboxDegrees[1],
-    //         ),
-    //       };
-    //     });
-    //   });
-    // };
+  componentDidMount() {
     this.viewer = new Viewer(this.cesiumContainer, {
       animation: false,
       timeline: false,
       fullscreenButton: false,
-      baseLayerPicker: false,
+      // baseLayerPicker: false,
       homeButton: false,
       navigationHelpButton: false,
       sceneModePicker: false,
@@ -61,13 +44,22 @@ class App extends Component {
     this.viewer.cesiumWidget.creditContainer.style.display = 'none';
   }
 
+  getLocation(loc) {
+    if (loc && loc.length === 2) {
+      this.viewer.camera.flyTo({
+        destination: Cartesian3.fromDegrees(loc[0], loc[1], 50.0),
+      });
+    }
+    this.setState({ location: loc });
+  }
+
   // eslint-disable-next-line class-methods-use-this
   render() {
     return (
       <div>
       <React.Fragment>
         <CssBaseline />
-        <Appbar />
+        <Appbar pushLocation2={this.getLocation}/>
       </React.Fragment>
       <React.Fragment>
         <div className="cesiumWindow" id="cesiumContainer" ref={ (element) => this.cesiumContainer = element } style={{
