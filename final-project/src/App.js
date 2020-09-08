@@ -7,6 +7,8 @@ import {
   Ion,
   createWorldTerrain,
   Cartesian3,
+  WebMapTileServiceImageryProvider,
+  // GeographicTilingScheme,
   // Resource,
   // Rectangle,
 } from 'cesium';
@@ -26,8 +28,8 @@ class App extends Component {
 
   componentDidMount() {
     this.viewer = new Viewer(this.cesiumContainer, {
-      animation: false,
-      timeline: false,
+      animation: true,
+      timeline: true,
       fullscreenButton: false,
       // baseLayerPicker: false,
       homeButton: false,
@@ -42,6 +44,14 @@ class App extends Component {
     this.viewer.scene.globe.enableLighting = true;
     this.viewer.scene.globe.depthTestAgainstTerrain = true;
     this.viewer.cesiumWidget.creditContainer.style.display = 'none';
+    const osm = new WebMapTileServiceImageryProvider({
+      url: 'http://localhost:8888/xyz_tile/{TileMatrix}/{TileCol}/{TileRow}.png',
+      layer: '',
+      style: 'default',
+      tileMatrixSetID: 'default028mm',
+      // tilingScheme: new GeographicTilingScheme(),
+    });
+    this.viewer.imageryLayers.addImageryProvider(osm);
   }
 
   getLocation(loc) {

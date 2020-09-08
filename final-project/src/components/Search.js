@@ -72,8 +72,8 @@ const Search = ({ pushLocation }) => {
   }
   const handleChange = (event) => {
     searchValue = event.target.value;
+    console.log(event.target.value);
     if (searchValue !== '') {
-      console.log(searchValue);
       const param = { text: searchValue, access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzZTRiMGQxOS0zZTZjLTRhYmYtYmE1ZS1hNjJjNDM1NzNjYmEiLCJpZCI6MzA0NjAsInNjb3BlcyI6WyJhc2wiLCJhc3IiLCJhc3ciLCJnYyIsInByIl0sImlhdCI6MTU5Mzc2MzUwM30.TlS6B0HhmY8gHfLOvZxUzbJnRkoyTEHRXAY9BxlW-E4' };
       const api = new API();
       setSearchNames([]);
