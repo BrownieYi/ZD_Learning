@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "image-webpack-loader": "^6.0.0",
     "mockjs": "^1.0.1-beta3",
     "qs": "^6.7.0",
